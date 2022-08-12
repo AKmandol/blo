@@ -17,7 +17,7 @@
                             </div>
 
                             <div class="pull-right">
-                                <a class="btn btn-info" href="{{ route('blog.index') }}"> Back</a>
+                                <a class="btn btn-secondary" href="{{ route('blog.index') }}"> Back</a>
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@
 
 
 
-                    <form action="{{ route('blog.store') }}" method="POST">
+                    <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data" >
                         @csrf
                         <div class="md-col-8">
 
@@ -49,19 +49,24 @@
                                     <input type="text" name="title" class="form-control" placeholder="Title">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group my-3">
                                     <strong>Slug:</strong>
                                     <input type="text" name="slug" class="form-control" placeholder="Slug">
                                 </div>
-                            
+
                                 <div class="form-group">
+                                    <strong>Blog Image:</strong>
+                                    <input class="form-control" name="image" type="file" id="formFile">
+                                </div>
+                            
+                                <div class="form-group my-3">
                                     <strong>Description:</strong>
                                     <textarea class="form-control" style="height:150px" name="description"placeholder="Description"></textarea>
                                 </div>
 
-                            <div class="mt-3 text-center">
-                                <button type="submit" class="btn btn-primary">Add</button>
-                            </div>
+                                <div class="mt-3 text-center">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                </div>
 
                         </div>
                     </form>

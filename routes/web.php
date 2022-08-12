@@ -25,3 +25,4 @@ Route::resource('blog', BlogController::class);
 
 Route::get('/', [App\Http\Controllers\BlogController::class, 'index'])->name('home');
 Route::post('/comment/{id}', [App\Http\Controllers\BlogController::class, 'comment'])->name('comment');
+Route::get('/userBlog', [App\Http\Controllers\BlogController::class, 'currentUserBlog'])->name('currentUserBlog');

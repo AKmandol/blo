@@ -17,7 +17,7 @@
                             </div>
 
                             <div class="pull-right">
-                                <a class="btn btn-info" href="{{ route('blog.index') }}"> Back</a>
+                                <a class="btn btn-secondary" href="{{ route('blog.index') }}"> Back</a>
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@
 
 
 
-                    <form action="{{ route('blog.update', $blog->id) }}" method="POST">
+                    <form action="{{ route('blog.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="md-col-8">
@@ -50,12 +50,22 @@
                                     <input type="text" value="{{ $blog->title }}" name="title" class="form-control" placeholder="Title">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group my-3">
                                     <strong>Slug:</strong>
                                     <input type="text" value="{{ $blog->slug }}" name="slug" class="form-control" placeholder="Slug">
                                 </div>
-                            
+
                                 <div class="form-group">
+                                    <strong>Old Image:</strong>
+                                    <img src="{{ asset('uploads/'. $blog->image) }}" class="img-fluid" width="100px" height="100px" alt="no image found">
+                                </div>
+
+                                <div class="form-group">
+                                    <strong>Blog Image:</strong>
+                                    <input class="form-control" name="image" type="file" id="formFile">
+                                </div>
+                            
+                                <div class="form-group  my-3">
                                     <strong>Description:</strong>
                                     <textarea class="form-control" style="height:150px" name="description" placeholder="Description" >{{ $blog->description }}</textarea>
                                 </div>

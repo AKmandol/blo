@@ -10,6 +10,14 @@ class Blog extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'slug','description','comment'
+        'title', 'slug','description','comment','image','user_id'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class,'user_id','id')->withDefault([
+            'id' => 420,
+            'name' => 'Guest User'
+        ]);
+    }
+
 }
